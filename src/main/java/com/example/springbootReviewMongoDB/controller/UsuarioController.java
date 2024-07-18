@@ -24,12 +24,12 @@ public class UsuarioController {
         return usuarioService.findAll();
     }
 
-    @GetMapping("/filter")
+    @PostMapping("/filter")
     public List<Usuario> findFilter(@RequestBody Usuario usuario) {
         return usuarioService.findAll(usuario);
     }
 
-    @GetMapping("/paged")
+    @PostMapping("/paged")
     public Page<Usuario> findPaged(@RequestBody Usuario usuario, Pageable pageable) {
         return usuarioService.findAll(usuario, pageable);
     }
@@ -49,17 +49,17 @@ public class UsuarioController {
         usuarioService.deleteById(id);
     }
 
-    @GetMapping("/dto")
+    @PostMapping("/dto")
     public List<UsuarioDto> findAllDto(){
         return usuarioService.findAllDto();
     }
 
-    @GetMapping("/dto/filtered")
+    @PostMapping("/dto/filtered")
     public List<UsuarioDto> findAllDtoFiltered(@RequestBody Usuario usuario){
         return usuarioService.findAllDto(usuario);
     }
 
-    @GetMapping("/dto/paged")
+    @PostMapping("/dto/paged")
     public Page<UsuarioDto> findAllDtoPaged(@RequestBody Usuario usuario, Pageable pageable){
         return usuarioService.findAllDto(usuario, pageable);
     }
